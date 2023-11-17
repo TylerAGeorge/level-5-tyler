@@ -63,7 +63,13 @@ void one_player_game()
     {
       printf("robot turn\n");
       srand(time(0));
-      move = (sticks <= 3) ? (sticks-1) : (rand()%3+1);
+      if(sticks == 1)
+      {
+        move = 1;
+      }else
+      {
+        move = (sticks <= 3) ? (sticks-1) : (rand()%3+1);
+      }
 
       printf("robot takes %d sticks\n", move); 
       sticks -= move;
@@ -71,8 +77,14 @@ void one_player_game()
     }
   }
 
-  printf("\nGAME OVER\n"
-          "Player %d wins\n", player);
+  printf("\nGAME OVER\n");
+  if(player == 1)
+  {
+    printf("you win\n\n");
+  }else
+  {
+    printf("you lose\n\n");
+  }
 
 }
 
